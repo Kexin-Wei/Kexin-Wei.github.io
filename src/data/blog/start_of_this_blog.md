@@ -1,6 +1,6 @@
 ---
 title: First Post with Astro
-pubDate: 01/01/2025 23:49
+pubDate: 01/01/2025 23:49 GMT+08
 author: "Kristin Wei"
 tags:
   - Astro
