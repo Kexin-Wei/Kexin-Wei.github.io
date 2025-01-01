@@ -5,6 +5,8 @@ import MobileSocials from "@components/home/MobileSocials.astro";
 import { Pill } from "@eliancodes/brutal-ui";
 import { Button } from "@eliancodes/brutal-ui";
 import { Card } from "@eliancodes/brutal-ui";
+import { Image } from 'astro:assets';
+import me from "../assets/me.jpeg";
 
 const builtWith = [
   { name: "Astro", url: "https://astro.build/" },
@@ -68,24 +70,13 @@ const interest = [
         </Card>
       </div>
 
-      <img
-        src="../assets/me.jpeg"
+      <Image
+        src={me}
         class="object-cover h-full w-full rounded-lg md:col-span-2 border-3 border-black card-shadow"
         alt="Kristin Wei (AI powered)"
         width="392"
         height="392"
-        loading="lazy"
-        decoding="async"
       />
-      <!-- <img
-        src="../assets/me.jpg"
-        class="object-cover h-full w-full rounded-lg md:col-span-2 border-3 border-black card-shadow"
-        alt="Kristin Wei (AI powered)"
-        width="392"
-        height="392"
-        loading="lazy"
-        decoding="async"
-      /> -->
 
       <div class="col-span-2">
         <Card>
