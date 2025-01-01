@@ -1,17 +1,25 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BlogSummaryCard from './BlogSummaryCard.astro';
+import type { CollectionEntry } from "astro:content";
+import BlogSummaryCard from "./BlogSummaryCard.astro";
 
 interface Props {
-  posts: CollectionEntry<'blog'>[];
+  posts: CollectionEntry<"blog">[];
 }
 
 const { posts } = Astro.props;
+const filteredPosts = posts
+  .filter((post) => {
+    // const isScheduled = new Date(post.data.pubDate).getTime() > Date.now();
+    const isNotHidden = !post.data.hide;
+    // return !isScheduled && isNotHidden;
+    return isNotHidden;
+  })
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
-<ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+<ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
   {
-    posts.map((post) => {
+    filteredPosts.map((post) => {
       return (
         <li>
           <BlogSummaryCard post={post} />
