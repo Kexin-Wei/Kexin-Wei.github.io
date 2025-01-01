@@ -9,6 +9,7 @@ tags:
 imgUrl: '../../assets/astro.jpeg'
 description: Recorded my journey with Astro to build this blog. Read me if you also want to learn to build this.
 ---
+> I have tried so many personal website generators (Jekyll, Hugo, Hexo) and now is Astro. Web dev is developing so fast, and now there are tones of tools (literally) to learn. Hazy dizzy. Well, this is a new guide to set up a personal website based on Astro.
 
 # Where to start?
 The first step of learning everything today is simple - go to the [official website](https://docs.astro.build/en/getting-started/).
