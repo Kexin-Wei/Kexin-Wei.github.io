@@ -8,14 +8,11 @@ interface Props {
 
 const { posts } = Astro.props;
 const filteredPosts = posts
-  .filter((post) => {
-    // const isScheduled = new Date(post.data.pubDate).getTime() > Date.now();
-    const isNotHidden = !post.data.hide;
-    // return !isScheduled && isNotHidden;
-    return isNotHidden;
-  })
+  .filter((post) => !post.data.hide)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
+
+<p class="mb-4">Total posts: {filteredPosts.length}</p>
 
 <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
   {

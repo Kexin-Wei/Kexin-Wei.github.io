@@ -5,6 +5,7 @@ author: "Kristin Wei"
 tags:
   - Astro
 hide: true 
+draft: true 
 imgUrl: '../../assets/astro.jpeg'
 description: A description.
 ---
