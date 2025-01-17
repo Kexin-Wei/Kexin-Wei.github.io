@@ -1,6 +1,6 @@
 ---
 title: ROS Intro 
-pubDate: 17/01/2025 00:00
+pubDate: "2025-01-17"
 author: "Kristin Wei"
 tags:
   - ROS
