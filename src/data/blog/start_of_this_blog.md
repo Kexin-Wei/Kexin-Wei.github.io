@@ -56,3 +56,7 @@ You may want to see whether you page is deployed, then you can go to the **Actio
 ![](../../assets/github_workflow.png)
 
 After this, your website should be ready to go, like mine [here](https://kexinwei.org).
+
+# Extras
+## Add Math Typesetting
+I followed [this post](https://www.byteli.com/post/webdev/math_in_astro/) to set up in astro. Instead using `npm`, I used `pnpm`.
