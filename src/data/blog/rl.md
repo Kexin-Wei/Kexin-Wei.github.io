@@ -4,6 +4,7 @@ pubDate: 16/01/2025 00:00
 author: "Kristin Wei"
 tags:
   - RL
+  - Python
 imgUrl: '../../assets/sutton_rl.jpg'
 description: Sets of reinforcement learning notes based on Sutton's book.
 ---
