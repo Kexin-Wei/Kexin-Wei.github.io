@@ -228,14 +228,20 @@ It provides navigation tools in Gazebo and rviz. You can play with it from [here
 I made a few demos to learn ROS. You can find them in [My Github ROS Demo repo](https://github.com/Kexin-Wei/LearnROS).
 
 ## Turtlesim Chase Game
+> in branch `ros_beginner`
+
 This demo only uses basic ROS concepts (node, topic, message, service, launch).
-The src code in c++ and python is in package `src/turtle_control` in branch `ros_beginner`.
-It requires `turtlesim` package.
+The src code in c++ and python is in package `src/turtle_control`.
+- requires `turtlesim` package.
 
 ![](../../assets/ros_turtle_chase.gif)
 
-## Turtlebot3 Navigation (TBC)
+## Turtlebot3 Navigation
+> in branch `nav2`
+
 In this demo, I created a map using Gazebo. It has online models that we can easily drag inside Gazebo.
-- map is in `maps/map_floor.yaml`, generated using `nav2_map_server` and rviz to save in slam.
+- map is in `maps/map_floor.yaml`, generated using `nav2_map_server` and rviz.
+- launch file is in `launch/turtlebot3_floor.launch.xml` which calls `launch/turtlebot3_floor.py` and `navigation2.launch.py` in `turtlebot3_navigation2`
+- wallpoint navigation is in `src/nav2_wallpoint.py`
 
 ![](../../assets/ros_turtle_nav.gif)
