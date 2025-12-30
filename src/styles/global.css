@@ -20,3 +20,17 @@ html {
   --at-apply: 'ease-in-out duration-300ms';
   --at-apply: 'hover:(c-background bg-primary decoration-primary)';
 }
+
+.site-title-link {
+  position: relative;
+  padding-left: 0.75rem;
+}
+.site-title-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--uno-colors-primary);
+}

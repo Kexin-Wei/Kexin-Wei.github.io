@@ -21,7 +21,17 @@ const dark = themeConfig.appearance.theme === 'dark'
     <ThemeScript />
   </head>
 
-  <body
+  <!-- TODO(human): Swap columns to move sidebar to the left
+
+     Current: cols-[3fr_1fr] = main(3fr) | sidebar(1fr)
+     Change to: cols-[1fr_3fr] = sidebar(1fr) | main(3fr)
+
+     Then swap column assignments:
+     - header: col-2-3 → col-1-2
+     - main: col-1-2 → col-2-3
+     - footer: col-2-3 → col-1-2
+-->
+<body
     class="h-100vh max-w-1200px min-w-390px mx-a"
     p="7.5 lg:(y-0 x-20)"
     lg="grid gap-x-6 cols-[3fr_1fr] rows-[1fr_9rem]"
