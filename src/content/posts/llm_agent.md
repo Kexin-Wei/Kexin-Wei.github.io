@@ -1,7 +1,7 @@
 ---
 title: LLM Agent
 pubDate: 2025-01-20
-author: "Kristin Wei"
+author: "Kexin Wei"
 categories:
   - LLM
   - Agentic AI

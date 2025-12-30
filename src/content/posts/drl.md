@@ -1,7 +1,7 @@
 ---
 title: Deep Reinforcement Learning
 pubDate: 2025-01-17
-author: "Kristin Wei"
+author: "Kexin Wei"
 categories:
   - DRL
   - Python

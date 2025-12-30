@@ -1,7 +1,7 @@
 ---
 title: ROS Intro
 pubDate: 2025-01-24
-author: "Kristin Wei"
+author: "Kexin Wei"
 categories:
   - ROS
   - Navigation2

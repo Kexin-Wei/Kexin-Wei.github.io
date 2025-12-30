@@ -1,7 +1,7 @@
 ---
 title: First Post with Astro
 pubDate: 2025-01-01
-author: "Kristin Wei"
+author: "Kexin Wei"
 categories:
   - Astro
   - JavaScript
