@@ -2,9 +2,9 @@ import type { UserConfig } from '~/types'
 
 export const userConfig: Partial<UserConfig> = {
   site: {
-    title: "Kristin's Blog",
+    title: 'Kexin\'s Blog',
     subtitle: 'Tech Notes',
-    author: 'Kristin Wei',
+    author: 'Kexin Wei',
     description: 'Personal blog about RL, ROS, LLM and more',
     website: 'https://kexinwei.org/',
     socialLinks: [
@@ -15,6 +15,25 @@ export const userConfig: Partial<UserConfig> = {
       {
         name: 'rss',
         href: '/atom.xml',
+      },
+    ],
+    navLinks: [
+      {
+        name: 'Posts',
+        href: '/',
+      },
+      {
+        name: 'Archive',
+        href: '/archive/',
+      },
+      {
+        name: 'Tags',
+        href: '/categories',
+      },
+      { name: 'Logseq Notes', href: '/logseq_notes/' },
+      {
+        name: 'About',
+        href: '/about',
       },
     ],
   },
