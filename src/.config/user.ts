@@ -35,6 +35,11 @@ export const userConfig: Partial<UserConfig> = {
         name: 'About',
         href: '/about',
       },
+      {
+        name: 'Resume',
+        href: '/resume.pdf',
+        highlight: true,
+      },
     ],
   },
   appearance: {

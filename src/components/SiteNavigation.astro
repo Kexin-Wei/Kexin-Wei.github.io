@@ -5,19 +5,19 @@ const { navLinks, socialLinks } = themeConfig.site
 const { translate: t } = Astro.locals
 ---
 
-<nav class="text-center font-bold" flex="~ col gap-4">
-  <ul lg="flex-col items-start text-4" class="text-3.5" flex="~ row gap-2 justify-center">
+<nav class="font-bold" flex="~ col gap-4">
+  <ul lg="flex-col items-start text-4" class="text-3.5" flex="~ row gap-2 wrap">
     {
       navLinks.map((nav) => (
         <li>
-          <a class="" href={nav.href}>
+          <a class={nav.highlight ? 'bg-primary c-background rounded-sm px-1.5' : ''} href={nav.href}>
             {t(nav.name)}
           </a>
         </li>
       ))
     }
   </ul>
-  <ul flex="~ row gap-1 justify-center">
+  <ul flex="~ row gap-1">
     {
       socialLinks.map(({ href, name }) => (
         <li>

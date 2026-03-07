@@ -34,7 +34,7 @@ export interface ConfigSite {
   website: string
   pageSize: number
   socialLinks: { name: string, href: string }[]
-  navLinks: { name: string, href: string }[]
+  navLinks: { name: string, href: string, highlight?: boolean }[]
   categoryMap: { name: string, path: string }[]
   footer: string[]
 }
