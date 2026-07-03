@@ -24,3 +24,7 @@ pnpm-debug.log*
 .playwright-mcp/
 
 Markdown style guide.md
+
+# session working screenshots
+*.jpeg
+!public/**
