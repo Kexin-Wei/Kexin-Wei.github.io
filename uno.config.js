@@ -8,9 +8,8 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 import presetTheme from 'unocss-preset-theme'
+import { colorsDark, colorsLight, fonts } from './src/theme/tokens'
 import { themeConfig } from './src/.config'
-
-const { colorsDark, colorsLight, fonts } = themeConfig.appearance
 
 const cssExtend = {
   ':root': {
@@ -58,25 +57,33 @@ export default defineConfig({
     presetTypography({ cssExtend }),
     presetAttributify(),
     presetIcons({ scale: 1.2, warn: true }),
-    presetTheme ({
+    presetTheme({
       theme: {
         dark: {
-          colors: { ...colorsDark, shadow: '#FFFFFF0A' },
-          // TODO 需要配置代码块颜色
+          colors: { ...colorsDark },
         },
       },
     }),
   ],
   theme: {
-    colors: { ...colorsLight, shadow: '#0000000A' },
+    colors: { ...colorsLight },
     fontFamily: fonts,
   },
   shortcuts: [
     ['post-title', 'text-5 font-bold lh-7.5 m-0'],
+    // 1px hairline rule between sections, the template's core visual device
+    ['rule-t', 'border-t-1 border-t-solid border-t-hairline/25'],
+    ['mono-label', 'font-mono text-3.25 tracking-wide c-primary'],
+    ['mono-link', 'font-mono text-3.5 c-primary underline underline-offset-4 decoration-1 hover:op-60 transition-opacity'],
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   safelist: [
     ...themeConfig.site.socialLinks.map(social => `i-mdi-${social.name}`),
+    'i-mdi-github',
+    'i-mdi-linkedin',
+    'i-mdi-email',
+    'i-mdi-rss',
+    'i-mdi-map-marker',
     'i-mdi-content-copy',
     'i-mdi-check',
   ],

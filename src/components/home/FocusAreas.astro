@@ -1,0 +1,27 @@
+---
+import { profile } from '~/data/profile'
+import PixelGrid from '~/components/home/PixelGrid.astro'
+
+const accentClass: Record<string, string> = {
+  'accent': 'c-accent',
+  'accent-alt': 'c-accent-alt',
+  'surface': 'c-muted',
+}
+---
+
+<section class="rule-t mt-16 lg:mt-24 pt-6">
+  <h2 class="m-0 mb-10 font-ui font-normal c-primary" style="font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.1;">
+    Core Areas of Work
+  </h2>
+  <div class="grid gap-10 lg:grid-cols-3 lg:gap-6">
+    {
+      profile.focusAreas.map((area, idx) => (
+        <div class="rule-t pt-4" flex="~ col gap-4">
+          <PixelGrid cols={24} rows={11} seed={idx * 13 + 3} class={`w-full h-auto ${accentClass[area.accent]}`} />
+          <h3 class="m-0 font-ui font-normal text-6 lg:text-7 c-primary">{area.title}</h3>
+          <p class="m-0 text-3.5 c-secondary">{area.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

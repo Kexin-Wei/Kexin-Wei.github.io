@@ -1,0 +1,56 @@
+---
+import '@fontsource-variable/archivo'
+import '@fontsource-variable/instrument-sans'
+import '@fontsource/ibm-plex-mono'
+import { themeConfig } from '~/.config'
+import { profile } from '~/data/profile'
+import SiteSeo from '~/components/SiteSeo.astro'
+import ThemeScript from '~/components/ThemeScript.astro'
+import FooterColumns from '~/components/home/FooterColumns.astro'
+import '~/styles/global.css'
+
+const lang = themeConfig.appearance.locale ?? 'en-us'
+const dark = themeConfig.appearance.theme === 'dark'
+const { navLinks } = themeConfig.site
+
+const initials = profile.name
+  .split(' ')
+  .map(part => part[0])
+  .join('')
+---
+
+<html lang={lang} class:list={[{ dark }]}>
+  <head>
+    <slot name="seo"> <SiteSeo /> </slot>
+    <ThemeScript />
+  </head>
+
+  <body class="max-w-1600px min-w-390px mx-auto px-5 lg:px-10 bg-background">
+    <header class="flex justify-between items-start pt-5 pb-8">
+      <a href="/" class="not-underline-hover inline-flex w-11 h-11 items-center justify-center bg-primary c-background font-mono font-bold text-4">
+        {initials}
+      </a>
+      <nav flex="~ col gap-0.5" class="items-start">
+        {
+          navLinks.map(nav => (
+            <a
+              href={nav.href}
+              class:list={[
+                'not-underline-hover font-mono text-3.25 c-primary hover:underline',
+                { 'bg-primary c-background px-1.5': nav.highlight },
+              ]}
+            >
+              {nav.name}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <FooterColumns />
+  </body>
+</html>

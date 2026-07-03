@@ -1,0 +1,19 @@
+---
+import { themeConfig } from '~/.config'
+import SiteSeo from '~/components/SiteSeo.astro'
+import Hero from '~/components/home/Hero.astro'
+import About from '~/components/home/About.astro'
+import FocusAreas from '~/components/home/FocusAreas.astro'
+import RecentPosts from '~/components/home/RecentPosts.astro'
+import Contact from '~/components/home/Contact.astro'
+import LayoutLanding from '~/layouts/LayoutLanding.astro'
+---
+
+<LayoutLanding>
+  <SiteSeo slot="seo" title={themeConfig.site.title} desc={themeConfig.site.description} />
+  <Hero />
+  <About />
+  <FocusAreas />
+  <RecentPosts />
+  <Contact />
+</LayoutLanding>

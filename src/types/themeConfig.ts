@@ -31,9 +31,6 @@ export interface ConfigSite {
 export interface ConfigAppearance {
   theme: 'light' | 'dark' | 'system'
   locale: keyof typeof LANGUAGES
-  colorsDark: Colors
-  colorsLight: Colors
-  fonts: Fonts
 }
 
 export interface ConfigSEO {
@@ -50,14 +47,4 @@ export interface ConfigRSS {
 
 export interface ConfigLaTeX {
   katex: boolean
-}
-
-interface Colors {
-  primary: string
-  background: string
-}
-
-interface Fonts {
-  header: string
-  ui: string
 }

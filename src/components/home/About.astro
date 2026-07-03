@@ -1,0 +1,15 @@
+---
+import { getEntry, render } from 'astro:content'
+
+const entry = await getEntry('spec', 'about')
+const Content = entry ? (await render(entry)).Content : null
+---
+
+<section id="about" class="rule-t mt-16 lg:mt-24 pt-6 grid gap-6 lg:grid-cols-2">
+  <h2 class="m-0 font-ui font-normal c-primary" style="font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.1;">
+    About Me
+  </h2>
+  <div class="prose max-w-none text-4 c-secondary">
+    {Content && <Content />}
+  </div>
+</section>

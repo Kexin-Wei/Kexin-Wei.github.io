@@ -1,0 +1,42 @@
+---
+import { getPosts } from '~/utils'
+
+const posts = (await getPosts()).slice(0, 3)
+---
+
+<section class="rule-t mt-16 lg:mt-24 pt-6">
+  <div class="grid gap-6 lg:grid-cols-2 mb-10">
+    <h2 class="m-0 font-ui font-normal c-primary" style="font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.1;">
+      Recent Posts
+    </h2>
+    <div flex="~ col gap-4" class="lg:items-end">
+      <p class="m-0 max-w-md text-3.5 c-secondary">
+        Notes on reinforcement learning, robotics, LLM agents and the
+        engineering in between. For the full list, visit the posts page.
+      </p>
+      <a href="/posts/" class="mono-link not-underline-hover">View All Posts &gt;</a>
+    </div>
+  </div>
+  <ul class="m-0 p-0 list-none">
+    {
+      posts.map((post, idx) => (
+        <li class="rule-t">
+          <a
+            href={`/posts/${post.id}/`}
+            class="not-underline-hover grid gap-2 py-6 lg:grid-cols-[6rem_1fr] lg:items-baseline group"
+          >
+            <span class="mono-label c-muted">{String(idx + 1).padStart(2, '0')}</span>
+            <span flex="~ col gap-2">
+              <span class="mono-label c-muted uppercase">
+                {post.data.categories?.join(' • ')} • {post.data.pubDate.getFullYear()}
+              </span>
+              <span class="font-ui text-6 lg:text-8 c-primary lh-tight group-hover:op-60 transition-opacity">
+                {post.data.title}
+              </span>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

@@ -19,8 +19,12 @@ export const userConfig: Partial<UserConfig> = {
     ],
     navLinks: [
       {
-        name: 'Posts',
+        name: 'Home',
         href: '/',
+      },
+      {
+        name: 'Posts',
+        href: '/posts/',
       },
       {
         name: 'Archive',
@@ -32,7 +36,7 @@ export const userConfig: Partial<UserConfig> = {
       },
       {
         name: 'About',
-        href: '/about',
+        href: '/#about',
       },
       {
         name: 'Resume',
