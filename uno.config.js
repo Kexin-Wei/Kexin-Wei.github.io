@@ -8,8 +8,8 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 import presetTheme from 'unocss-preset-theme'
-import { colorsDark, colorsLight, fonts } from './src/theme/tokens'
 import { themeConfig } from './src/.config'
+import { colorsDark, colorsLight, fonts } from './src/theme/tokens'
 
 const cssExtend = {
   ':root': {

@@ -14,8 +14,10 @@
       "Bash(git rm *)",
       "Bash(nohup pnpm preview --port 4321)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
-      "Bash(git commit -q -m 'feat: portfolio landing page in Researcher CV style, blog moved to /posts *)"
+      "Bash(git commit -q -m 'feat: portfolio landing page in Researcher CV style, blog moved to /posts *)",
+      "Bash(pnpm typecheck *)",
+      "Bash(pnpm lint *)",
+      "Bash(pnpm lint:fix)"
     ]
-  },
-  "outputStyle": "Learning"
+  }
 }

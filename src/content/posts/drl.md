@@ -7,10 +7,13 @@ categories:
   - Python
 description: Summary of sets of Deep Reinforcement Learning Algorithms.
 ---
+
 # Deep Reinforcement Learning
-Deep reinforcement learning is a combination of deep learning and reinforcement learning. *It uses NN to substitute the policy function or value function in RL.*
+
+Deep reinforcement learning is a combination of deep learning and reinforcement learning. _It uses NN to substitute the policy function or value function in RL._
 
 ## DQN Deep Q-Network: A close look
+
 > DQN is a combination of Q-learning and CNN. It uses CNN to approximate the Q-value function.
 
 DeepMind team created the Atari DQN work by using a combination of feature engineering and relying on deep neural network to achieve its results. The feature engineering included downsampling the image, reducing it to grey-scale and - importantly for the Markov Property - using four consecutive frames to represent a single state, so that information about velocity of objects was present in the state representation. The DNN then processed the images into higher-level features that could be used to make predictions about state values.
@@ -88,24 +91,28 @@ tf.keras.optimizers.RMSprop(
 ## Comparison with Other DRL algorithms
 
 ### Double DQN
+
 - use target network to select the action
 - use online network to evaluate the action
 - evaluation network helps provide a less biased estimate of Q-values
 - still limited to discrete action spaces
 
 ### A2C Advantage Actor-Critic
+
 - use policy gradient to update the policy
 - use value function to update the value
 - actor learns to select actions while critic evaluates those actions
 - can handle both continuous and discrete action spaces
 
 ### A3C Asynchronous Advantage Actor-Critic
+
 - asynchronous version of A2C that runs multiple parallel agents
 - each agent has its own copy of the environment and network
 - periodically updates a global network with gathered experiences
 - better exploration due to parallel agents
 
 ### TRPO Trust Region Policy Optimization
+
 - uses KL divergence constraint to limit how much the policy can change in each update
 - guarantees monotonic policy improvement (theoretically)
 - requires computing second-order derivatives and conjugate gradient optimization
@@ -113,6 +120,7 @@ tf.keras.optimizers.RMSprop(
 - very stable training due to constrained updates
 
 ### PPO Proximal Policy Optimization
+
 - policy gradient method that directly optimizes the policy
 - uses "clipped" objective function to prevent too large policy updates
 - generally more stable than older policy gradient methods
@@ -120,6 +128,7 @@ tf.keras.optimizers.RMSprop(
 - simpler to implement than TRPO while maintaining good performance
 
 ### DDPG
+
 - specifically designed for continuous action spaces
 - combines ideas from DQN and actor-critic methods
 - uses deterministic policy instead of stochastic
@@ -127,6 +136,7 @@ tf.keras.optimizers.RMSprop(
 - can be sensitive to hyperparameters and less stable than PPO
 
 ## What is Policy Gradient?
+
 Policy Gradients is a fundamental approach in reinforcement learning that directly optimizes the policy without learning a value function.
 
 - instead of learning Q-values, directly learn the policy π(a|s) that maps states to actions

@@ -1,9 +1,4 @@
-import type { Link, Meta } from 'astro-seo'
 import type { LANGUAGES } from '../i18n.ts'
-
-export type DeepPartial<T> = {
-  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
-}
 
 export interface ThemeConfig {
   site: ConfigSite
@@ -12,8 +7,6 @@ export interface ThemeConfig {
   rss: ConfigRSS
   latex: ConfigLaTeX
 }
-
-export type UserConfig = DeepPartial<ThemeConfig>
 
 export interface ConfigSite {
   title: string
@@ -35,8 +28,8 @@ export interface ConfigAppearance {
 
 export interface ConfigSEO {
   twitter: string
-  meta: Partial<Meta>[]
-  link: Partial<Link>[]
+  meta: { name: string, content: string }[]
+  link: { rel: string, href: string, type?: string, title?: string }[]
 }
 
 export interface ConfigRSS {

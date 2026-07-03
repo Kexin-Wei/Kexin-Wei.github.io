@@ -9,9 +9,11 @@ categories:
   - RAG
 description: Thoughts and understanding after joined the LLM Agent AI Camp.
 ---
+
 > If you are curious, there is [a link to the AI Camp Event](https://www.aicamp.ai/event/eventdetails/W2025010100) I joined. AI Camp is good in a way that it provides a platform to learn with other in Discord together.
 
 This post consists of 4 parts.
+
 - What is LLM?
 - What is RAG?
 - What is ReAct?
@@ -20,19 +22,23 @@ This post consists of 4 parts.
 Let's start it.
 
 # What is LLM?
-LLM stands for Large Language Model. It is an artificial intelligence system trained on vast amounts of text data to understand and generate human-like language. Some famous examples are:
-- ChatGPT: A generative AI chatbot developed by *OpenAI*
-- Claude: A generative AI chatbot developed by *Anthropic*
-- Bard: A language model developed by *Google*
-- Llama: A language model developed by *Meta*
 
+LLM stands for Large Language Model. It is an artificial intelligence system trained on vast amounts of text data to understand and generate human-like language. Some famous examples are:
+
+- ChatGPT: A generative AI chatbot developed by _OpenAI_
+- Claude: A generative AI chatbot developed by _Anthropic_
+- Bard: A language model developed by _Google_
+- Llama: A language model developed by _Meta_
 
 They are "large" in two ways:
+
 - massive amounts of training data
 - billions or even trillions of parameters
 
 ## Prompt Techniques
+
 There are some prompt techniques (yes, prompt engineering is still important):
+
 - Zero-shot prompting: doesn't contain examples or demonstrations.
   ```bash
   Prompt:
@@ -60,7 +66,7 @@ There are some prompt techniques (yes, prompt engineering is still important):
 In summary, clear role, prompt example and step by step instructions all can contribute to a good prompt.
 
 > Additionally, if you are developing a commercial LLM application, you may avoid prompt injection, because it attempts to manipulate the model's behavior by including malicious instructions within seemingly normal input, similar as SQL injection.
-![](/prompt_injection.png)
+> ![](/prompt_injection.png)
 
 ## Tool calling
 
@@ -68,11 +74,13 @@ In summary, clear role, prompt example and step by step instructions all can con
 If you have watched [Palantir's Youtube Video](https://youtu.be/XEM5qz__HOU?si=pWlDTw-5UTZvPrQH), you may find out that the tool calling is hidden in the video. It is a good example of how to use LLM to call tool that process the information and return the result. Here it calls the tools to display images or draw graphs. How to implement it will be mentioned in the last section.
 
 # What is RAG?
+
 RAG stands for Retrieval-Augmented Generation. It is a model that combines the strengths of retrieval-based and generative models.
 
 ![](/rag.jpeg)
 
 It consists of several steps:
+
 - Document loading
 - Document splitting
 - Embedding
@@ -82,14 +90,17 @@ It consists of several steps:
 In my github repo, there is an jupyter notebook file provided by DeepLearning.ai team, that explains well about each step. You can check it out [here](https://github.com/Kexin-Wei/RAG-LLM-and-LLM-Agent/blob/main/1deeplearning_ai_notebooks/4LangChain%20Chat%20with%20Your%20Data/03_vectorstores_and_embeddings.ipynb).
 
 If you already know some about Database and vectorization of words, I can explain in one sentence:
+
 > When you retrieve, the query will be vectorized and compared with the vectorized documents in the vectorstore, then the most similar document will be retrieved.
 
 # What is ReAct?
+
 ReAct is inspired by the synergies between "acting" and "reasoning" which allow humans to learn new tasks and make decisions or reasoning.
 
 ![](/react.png)
 
 Its core concepts are:
+
 - Combines Chain-of-Thought (CoT) reasoning with task-specific actions
 - Uses a "Thought/Action/Observation" cycle
 - Enables better decision-making through structured reasoning
@@ -103,24 +114,28 @@ Observation: Found information about X...
 Thought: Based on this, I should now...
 Action: ...
 ```
+
 I created ReAct agent based on [Gemini](https://github.com/Kexin-Wei/RAG-LLM-and-LLM-Agent/blob/main/LLM_Agent/2.%20ReAct_Gemini_Scratch.ipynb) and [LangGraph](https://github.com/Kexin-Wei/RAG-LLM-and-LLM-Agent/blob/main/LLM_Agent/2.%20ReAct_LangGraph.ipynb), which uses tool to find the answer to the question user requests, you may want to check it out. A detailed explanation is coming in the next section.
 
-
 # Demo of Traditional RAG and Agentic RAG, ReAct Agent
+
 I have created a demo of [Traditional RAG](https://github.com/Kexin-Wei/RAG-LLM-and-LLM-Agent/blob/main/RAG_Trad.ipynb) and [Agentic RAG](https://github.com/Kexin-Wei/RAG-LLM-and-LLM-Agent/blob/main/RAG_Agentic.ipynb), ReAct Agent ([Gemini](https://github.com/Kexin-Wei/RAG-LLM-and-LLM-Agent/blob/main/LLM_Agent/2.%20ReAct_Gemini_Scratch.ipynb) and [LangGraph](https://github.com/Kexin-Wei/RAG-LLM-and-LLM-Agent/blob/main/LLM_Agent/2.%20ReAct_LangGraph.ipynb)). Let's discuss about the coding and some techniques we skip in the previous sections
 
 > Compared to Gemini, LangGraph is more complex but more structured. It uses a graph to store the information and retrieve the information. It has a steep learning curve but is more powerful.
 
 ## ReAct Agent
+
 ReAct in LangGraph is pretty simple, it provides `create_react_agent` function to create the agent directly. So here I will use the [Gemini](https://github.com/Kexin-Wei/RAG-LLM-and-LLM-Agent/blob/main/LLM_Agent/2.%20ReAct_Gemini_Scratch.ipynb) as an example.
 
 The code flowchart is:
+
 1. People query
 2. llm thinks about what tool to use
 3. Call tool
 4. Judge result, if not good, repeat 2-4, if good, return result
 
 To manage this, we need to create certain tools and functions, including:
+
 - a nice system prompt with memory feature and tool feature, and generate response in json format (for easy data processing)
 - decode the json response ( a simple function to change string to valid json data)
 - a tool that llm can call ( here I use [wikipedia search](https://github.com/Kexin-Wei/RAG-LLM-and-LLM-Agent/blob/main/LLM_Agent/wikipedia_tool.py) as an example, it contains several functions `search_wikipedia_pages`,`get_wikipedia_page_content` and `get_wikipedia_page_summary`)
@@ -132,20 +147,19 @@ Since ReAct is a loop, you'd better set a max iteration to avoid infinite loop.
 
 From the ReAct result, you can tell the agent uses certain tool to search the information and return the result. Each step it provides reasoning and action.
 
-
 ## Traditional RAG
+
 ![](/rag_trad.png)
 Here the `retrieve` node uses the vectorstore generated from the `Document loading->Document splitting->Embedding->Store in vectorstore` process. And `generate` node uses the LLM model to generate the answer.
 
 To build the graph is very simple,
+
 ```python
 from langgraph.graph import START, StateGraph
-
 
 def retrieve(state: State):
     retrieved_docs = vector_store.similarity_search(state["question"])
     return {"context": retrieved_docs}
-
 
 def generate(state: State):
     docs_content = "\n\n".join(doc.page_content for doc in state["context"])
@@ -153,11 +167,11 @@ def generate(state: State):
     response = llm.invoke(messages)
     return {"answer": response.content}
 
-
 graph_builder = StateGraph(State).add_sequence([retrieve, generate])
 graph_builder.add_edge(START, "retrieve")
 graph = graph_builder.compile()
 ```
+
 after this you can use `graph.invoke({"question": "YOUR_QUESTION"})` to get the answer.
 
 Following tutorial provided by DeepLearning.ai, I created an interactive UI chatbot that uses memory to store the conversation history.
@@ -167,8 +181,10 @@ Following tutorial provided by DeepLearning.ai, I created an interactive UI chat
 You can tell that the second question is related to the first question, which is a good demonstration of the memory function. Similarly, the third question is related to the second question.
 
 ## Agentic RAG
+
 ![](/rag_agentic.png)
 In the agentic RAG, several agents are used:
+
 - rewrite query agent: to rewrite the query in a more structured way
 - retrieve agent: to retrieve the information and call retrieve tool (yes, here we use retrieve as a tool)
 - compose agent: to compose the information retrieved into answer
@@ -295,7 +311,6 @@ def rewrite_query(state: RAGState) -> RAGState:
     print(f"New Query: {state['current_query']}")
     return state
 
-
 # query rag or respond
 def query_rag(state: RAGState) -> RAGState:
     """Generate tool call for RAG or respond"""
@@ -310,9 +325,7 @@ def query_rag(state: RAGState) -> RAGState:
     print(f"tool call: {response.tool_calls}")
     return state
 
-
 retrieve_tool = ToolNode([retrieve_from_vectorstore])
-
 
 # compose answer
 def compose_answer(state: RAGState) -> RAGState:
@@ -332,7 +345,6 @@ def compose_answer(state: RAGState) -> RAGState:
     print(f"Compose Answer: {state['answer']}")
     return state
 
-
 # check google search
 def check_google_search(state: RAGState) -> RAGState:
     """Check if google search is needed"""
@@ -348,9 +360,7 @@ def check_google_search(state: RAGState) -> RAGState:
     print(f"tool call: {response.tool_calls}")
     return state
 
-
 google_tool = ToolNode([google_search])
-
 
 # refine answer with google search
 def refine_answer(state: RAGState) -> RAGState:
@@ -371,7 +381,6 @@ def refine_answer(state: RAGState) -> RAGState:
     print(f"Refine Answer: {state['answer']}")
     return state
 
-
 # judge answer
 def judge_answer(state: RAGState) -> RAGState:
     """Judge whether the answer is satisfactory"""
@@ -390,7 +399,6 @@ def judge_answer(state: RAGState) -> RAGState:
         return {"next": "rewrite_query"}
     return {"next": "end"}
 
-
 # define the function to determine to continue or end
 def should_continue(state: MessagesState) -> Literal["rewrite_query", END]:
     """Determine whether to continue or end"""
@@ -398,7 +406,6 @@ def should_continue(state: MessagesState) -> Literal["rewrite_query", END]:
     if message == "rewrite_query":
         return "rewrite_query"
     return END
-
 
 graph_builder = StateGraph(RAGState)
 graph_builder.add_node(rewrite_query)
@@ -422,6 +429,7 @@ graph_builder.add_conditional_edges(
 
 graph = graph_builder.compile()
 ```
+
 </details>
 
 Similarly, I created a chatbot that uses memory to store the conversation history. However, since this is a research assistant, and the tool added is GoogleSearch, the result becomes less focused on the research paper content and more general.
@@ -430,8 +438,8 @@ Similarly, I created a chatbot that uses memory to store the conversation histor
 
 > The GoogleScholar API in LangGraph has bugs at the blog post time, so I used GoogleSearch instead. But I believe the GoogleScholar API will be more powerful and more focused on the research paper content.
 
-
 # Conclusion
+
 This blog demonstrates some applications of LLM, RAG and ReAct, which shows the potential of LLM agents. It can help to search information in a wide range, or from certain PDF / WebPage / CSV files, use memory to chat with users, and call tools to process data and return the result.
 
 Once we have a well formatted low-level tool collections (which you can tell [LangGraph is already doing it](https://python.langchain.com/api_reference/community/tools.html)), it can basically do everything we want, since most of the items in our life are coded and connected to the internet.

@@ -1,6 +1,7 @@
 ---
 import { themeConfig } from '~/.config'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
+import SiteSeo from '~/components/SiteSeo.astro'
 import { getCategories, getPathFromCategory } from '~/utils/index'
 
 const { translate: t } = Astro.locals
@@ -18,19 +19,24 @@ function getListFromMap(map: typeof categoryMap) {
 ---
 
 <LayoutDefault>
-  <section>
-    <h2 class="post-title">{t('Categories')}</h2>
-    <ul class="pl-6" flex="~ col gap-4">
-      {
-        list.map(({ title, href, size }) => (
-          <li>
-            <h3 class="post-title">
-              <a href={href}># {title}</a>
-            </h3>
-            <p>{size}</p>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+  <SiteSeo slot="seo" title={`Tags | ${themeConfig.site.title}`} desc={themeConfig.site.description} />
+
+  <div class="rule-t pt-4 pb-10">
+    <h1 class="m-0 font-ui font-normal c-primary" style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1;">
+      Tags
+    </h1>
+  </div>
+
+  <ul class="m-0 p-0 list-none rule-t py-6 flex flex-wrap gap-x-8 gap-y-4">
+    {
+      list.map(({ title, href, size }) => (
+        <li class="flex items-baseline gap-2">
+          <a href={href} class="not-underline-hover font-ui text-4.5 c-primary hover:op-60">
+            # {title}
+          </a>
+          <span class="mono-label c-muted">{size}</span>
+        </li>
+      ))
+    }
+  </ul>
 </LayoutDefault>

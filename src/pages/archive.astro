@@ -1,5 +1,7 @@
 ---
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
+import SiteSeo from '~/components/SiteSeo.astro'
+import { themeConfig } from '~/.config'
 import type { Post } from '~/types'
 import { formatDate, getPosts } from '~/utils'
 
@@ -34,23 +36,29 @@ function getListItem(post: Post): ListItem {
 ---
 
 <LayoutDefault>
-  <div flex="~ col gap-4">
-    {
-      yearMap.map(([year, posts]) => (
-        <section>
-          <h2 class="post-title">{year}</h2>
-          <ul class="pl-6" flex="~ col gap-4">
-            {posts.map(({ title, href, date }) => (
-              <li>
-                <h3 class="post-title">
-                  <a href={href}>{title}</a>
-                </h3>
-                <time>{date}</time>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))
-    }
+  <SiteSeo slot="seo" title={`Archive | ${themeConfig.site.title}`} desc={themeConfig.site.description} />
+
+  <div class="rule-t pt-4 pb-10">
+    <h1 class="m-0 font-ui font-normal c-primary" style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1;">
+      Archive
+    </h1>
   </div>
+
+  {
+    yearMap.map(([year, posts]) => (
+      <section class="rule-t grid gap-2 py-6 lg:grid-cols-[6rem_1fr]">
+        <h2 class="m-0 mono-label c-muted font-normal">{year}</h2>
+        <ul class="m-0 p-0 list-none" flex="~ col gap-4">
+          {posts.map(({ title, href, date }) => (
+            <li class="flex items-baseline gap-4">
+              <time class="mono-label c-muted shrink-0">{date}</time>
+              <a href={href} class="not-underline-hover font-ui text-4.5 c-primary hover:op-60">
+                {title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
 </LayoutDefault>

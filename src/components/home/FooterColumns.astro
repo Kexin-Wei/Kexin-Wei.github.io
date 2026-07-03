@@ -16,7 +16,7 @@ const { navLinks } = themeConfig.site
 
   <div flex="~ col gap-1">
     {
-      profile.socials.map(social => (
+      profile.socials.map((social) => (
         <a href={social.href} target="_blank" class="not-underline-hover c-secondary hover:op-60">
           {social.label}
         </a>
@@ -28,7 +28,7 @@ const { navLinks } = themeConfig.site
   <div flex="~ col gap-1">
     <nav flex="~ col gap-1">
       {
-        navLinks.map(nav => (
+        navLinks.map((nav) => (
           <a href={nav.href} class="not-underline-hover c-secondary hover:op-60">
             {nav.name}
           </a>

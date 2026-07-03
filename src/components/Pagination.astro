@@ -28,30 +28,28 @@ const {
 } = Astro.props
 ---
 
-<footer class="mt-5">
-  {
-    showPageCount && (
-      <div class="mb-2.5">
-        {t('page_number', currentPage)} / {t('page_count', totalPage)}
-      </div>
-    )
-  }
-  <div class="flex items-center gap-2">
+<footer class="rule-t mt-10 pt-4 pb-8 flex items-baseline justify-between gap-4">
+  <div class="flex items-baseline gap-6">
     {
       showLeft && (
-        <a title={leftTitle} href={leftUrl}>
-          <span class="inline-block vertical-mid i-mdi-chevron-double-left w-4 h-4" />
-          {leftTitle}
+        <a title={leftTitle} href={leftUrl} class="mono-link not-underline-hover">
+          &lt; {leftTitle}
         </a>
       )
     }
     {
       showRight && (
-        <a title={rightTitle} href={rightUrl}>
-          {rightTitle}
-          <span class="inline-block vertical-mid i-mdi-chevron-double-right w-4 h-4" />
+        <a title={rightTitle} href={rightUrl} class="mono-link not-underline-hover">
+          {rightTitle} &gt;
         </a>
       )
     }
   </div>
+  {
+    showPageCount && (
+      <div class="mono-label c-muted">
+        {t('page_number', currentPage)} / {t('page_count', totalPage)}
+      </div>
+    )
+  }
 </footer>
