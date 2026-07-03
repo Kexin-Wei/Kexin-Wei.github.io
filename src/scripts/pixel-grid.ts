@@ -134,6 +134,15 @@ const ICONS: Record<string, IconDrawer> = {
     ctx.lineWidth = 1.3
     ctx.stroke()
   },
+  lock: (ctx) => {
+    ctx.beginPath()
+    ctx.arc(6, 5.2, 1.9, Math.PI, 0)
+    ctx.lineWidth = 1.2
+    ctx.stroke()
+    ctx.lineWidth = 1.2
+    ctx.strokeRect(3.2, 5.2, 5.6, 5)
+    dot(ctx, 6, 7.7, 0.8)
+  },
 }
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches

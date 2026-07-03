@@ -5,7 +5,7 @@ export const themeConfig: ThemeConfig = {
     title: 'Kexin Wei',
     subtitle: 'Robotics & AI',
     author: 'Kexin Wei',
-    description: 'Kexin Wei — R&D Engineer in Robotics & AI. Portfolio and notes on RL, ROS, LLM and more.',
+    description: 'Kexin Wei — R&D Engineer in Robotics, AI & Cybersecurity. Portfolio and notes on RL, ROS, LLM and more.',
     website: 'https://kexinwei.org/',
     pageSize: 5,
     socialLinks: [

@@ -1,4 +1,4 @@
-export type PixelIcon = 'robot' | 'gear' | 'chip' | 'wave' | 'node' | 'code'
+export type PixelIcon = 'robot' | 'gear' | 'chip' | 'wave' | 'node' | 'code' | 'lock'
 
 export interface FocusArea {
   title: string
@@ -22,9 +22,9 @@ export interface Profile {
 
 export const profile: Profile = {
   name: 'Kexin Wei',
-  role: 'R&D Engineer, Robotics & AI',
+  role: 'R&D Engineer — Robotics, AI & Cybersecurity',
   location: 'Singapore',
-  tagline: 'Building intelligent robotic systems — from perception to motion.',
+  tagline: 'Building intelligent systems that move, reason and stay secure.',
   avatar: '/profile.jpg',
   resume: '/resume.pdf',
   email: 'weikexin611@gmail.com',
@@ -32,6 +32,7 @@ export const profile: Profile = {
     'Robotics',
     'AI',
     'LLM',
+    'Cybersecurity',
     'C++',
     'Computer Vision',
     'ROS',
@@ -48,18 +49,18 @@ export const profile: Profile = {
       icons: ['robot', 'gear', 'wave'],
     },
     {
-      title: 'AI & Machine Learning',
+      title: 'AI & LLM Agents',
       description:
-        'Applying reinforcement learning, computer vision and LLM agents to real-world robotic tasks — from perception pipelines to decision-making policies.',
+        'Applying reinforcement learning, computer vision and LLM agents to real-world tasks — from perception pipelines and decision-making policies to agentic workflows.',
       accent: 'accent-alt',
       icons: ['node', 'chip', 'wave'],
     },
     {
-      title: 'Software & Systems',
+      title: 'Cybersecurity & Systems',
       description:
-        'Designing maintainable C++ and Python systems. Strong focus on software architecture, tooling and the engineering discipline that turns research into products.',
+        'Bringing security thinking to intelligent systems — secure software design, threat awareness and the engineering discipline that keeps robots and AI agents trustworthy.',
       accent: 'surface',
-      icons: ['code', 'chip'],
+      icons: ['lock', 'code', 'chip'],
     },
   ],
   socials: [
