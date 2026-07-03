@@ -209,10 +209,11 @@ function initGrid(canvas: HTMLCanvasElement) {
           dot(ctx, cx, cy, 2.2)
         }
         else if (d > 0.3 && icons.length) {
-          // themed icon bands: each 0.06-wide band shows one icon type,
-          // so icons appear as coherent waves that mutate with the field
-          const band = Math.min(Math.floor((0.48 - d) / 0.06), icons.length - 1)
-          const icon = ICONS[icons[band % icons.length]]
+          // themed icon bands: the 0.3–0.48 range is split evenly across
+          // all of the grid's icons, so every icon type appears as its own
+          // coherent wave that mutates with the field
+          const band = Math.min(Math.floor(((0.48 - d) / 0.18) * icons.length), icons.length - 1)
+          const icon = ICONS[icons[band]]
           ctx.save()
           ctx.translate(px, py)
           ctx.strokeStyle = muted

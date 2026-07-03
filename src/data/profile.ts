@@ -3,7 +3,7 @@ export type PixelIcon = 'robot' | 'gear' | 'chip' | 'wave' | 'node' | 'code' | '
 export interface FocusArea {
   title: string
   description: string
-  accent: 'accent' | 'accent-alt' | 'surface'
+  accent: 'accent' | 'accent-alt' | 'accent-blue' | 'surface'
   icons: PixelIcon[]
 }
 
@@ -15,6 +15,7 @@ export interface Profile {
   avatar: string
   resume: string
   email: string
+  emailAcademic: string
   skills: string[]
   focusAreas: FocusArea[]
   socials: { name: string, label: string, href: string }[]
@@ -25,9 +26,10 @@ export const profile: Profile = {
   role: 'R&D Engineer — Robotics, AI & Cybersecurity',
   location: 'Singapore',
   tagline: 'Building intelligent systems that move, reason, and stay secure.',
-  avatar: '/profile.jpg',
+  avatar: '/portrait.jpg',
   resume: '/resume.pdf',
   email: 'weikexin611@gmail.com',
+  emailAcademic: 'k.wei@imperial.ac.uk',
   skills: [
     'Robotics',
     'AI',
@@ -52,7 +54,7 @@ export const profile: Profile = {
       title: 'AI & LLM Agents',
       description:
         'Applying reinforcement learning, computer vision and LLM agents to real-world tasks — from perception pipelines and decision-making policies to agentic workflows.',
-      accent: 'accent-alt',
+      accent: 'accent-blue',
       icons: ['node', 'chip', 'wave'],
     },
     {

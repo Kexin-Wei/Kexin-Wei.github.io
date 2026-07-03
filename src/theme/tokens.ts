@@ -27,6 +27,7 @@ export const colorsLight = {
   hairline: '#1a1a1a',
   accent: '#ddf0d9',
   accentAlt: '#dccfea',
+  accentBlue: '#cfe2f4',
   muted: '#8a8a8a',
   shadow: '#0000000A',
 }
@@ -39,6 +40,7 @@ export const colorsDark = {
   hairline: '#f5f5f3',
   accent: '#3a4d36',
   accentAlt: '#463a52',
+  accentBlue: '#38506b',
   muted: '#8a8a8a',
   shadow: '#FFFFFF0A',
 }

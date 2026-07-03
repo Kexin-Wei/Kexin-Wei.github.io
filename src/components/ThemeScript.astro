@@ -5,24 +5,28 @@ const theme = themeConfig.appearance.theme
 ---
 
 <script is:inline define:vars={{ theme }}>
-  function updateTheme(theme) {
-    // Check if theme is system
-    if (theme === 'system') {
-      // Check OS preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      document.documentElement.classList.toggle('dark', prefersDark)
-      return
-    }
-    // Set theme directly
-    document.documentElement.classList.toggle('dark', theme === 'dark')
+  function systemPrefersDark() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
   }
 
-  // Initial theme setup
-  updateTheme(theme)
-
-  // Listen for OS theme changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  function resolveDark() {
+    // A manual choice from the theme toggle wins; otherwise follow the
+    // configured theme (config 'system' = OS preference).
+    const stored = localStorage.getItem('theme')
+    if (stored === 'dark' || stored === 'light') {
+      return stored === 'dark'
+    }
     if (theme === 'system') {
+      return systemPrefersDark()
+    }
+    return theme === 'dark'
+  }
+
+  document.documentElement.classList.toggle('dark', resolveDark())
+
+  // Follow OS changes only while the visitor has not chosen manually
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme') && theme === 'system') {
       document.documentElement.classList.toggle('dark', e.matches)
     }
   })

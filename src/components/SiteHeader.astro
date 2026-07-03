@@ -17,19 +17,40 @@ const initials = profile.name
   >
     {initials}
   </a>
-  <nav class="flex flex-row flex-wrap justify-end gap-x-5 gap-y-2 max-w-70vw">
-    {
-      navLinks.map((nav) => (
-        <a
-          href={nav.href}
-          class:list={[
-            'not-underline-hover font-mono text-3.5 hover:underline underline-offset-4',
-            nav.highlight ? 'bg-primary c-background px-1.5' : 'c-primary',
-          ]}
-        >
-          {nav.name}
-        </a>
-      ))
-    }
-  </nav>
+  <div class="flex items-start gap-5">
+    <nav class="flex flex-row flex-wrap justify-end gap-x-5 gap-y-2 max-w-60vw">
+      {
+        navLinks.map((nav) => (
+          <a
+            href={nav.href}
+            class:list={[
+              'not-underline-hover font-mono text-3.5 hover:underline underline-offset-4',
+              nav.highlight ? 'bg-primary c-background px-1.5' : 'c-primary',
+            ]}
+          >
+            {nav.name}
+          </a>
+        ))
+      }
+    </nav>
+    <button
+      data-theme-toggle
+      type="button"
+      title="Toggle light/dark theme"
+      aria-label="Toggle light/dark theme"
+      class="bg-transparent border-none p-0 cursor-pointer c-primary hover:op-60 transition-opacity"
+    >
+      <span class="i-mdi-weather-night block w-4.5 h-4.5 dark:hidden"></span>
+      <span class="i-mdi-white-balance-sunny hidden w-4.5 h-4.5 dark:block"></span>
+    </button>
+  </div>
 </header>
+
+<script>
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const dark = document.documentElement.classList.toggle('dark')
+      localStorage.setItem('theme', dark ? 'dark' : 'light')
+    })
+  })
+</script>
