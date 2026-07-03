@@ -24,7 +24,7 @@ export const profile: Profile = {
   name: 'Kexin Wei',
   role: 'R&D Engineer — Robotics, AI & Cybersecurity',
   location: 'Singapore',
-  tagline: 'Building intelligent systems that move, reason and stay secure.',
+  tagline: 'Building intelligent systems that move, reason, and stay secure.',
   avatar: '/profile.jpg',
   resume: '/resume.pdf',
   email: 'weikexin611@gmail.com',
