@@ -17,14 +17,14 @@ const initials = profile.name
   >
     {initials}
   </a>
-  <nav flex="~ col gap-0.5" class="items-start">
+  <nav class="flex flex-row flex-wrap justify-end gap-x-5 gap-y-2 max-w-70vw">
     {
       navLinks.map((nav) => (
         <a
           href={nav.href}
           class:list={[
-            'not-underline-hover font-mono text-3.25 c-primary hover:underline',
-            { 'bg-primary c-background px-1.5': nav.highlight },
+            'not-underline-hover font-mono text-3.5 hover:underline underline-offset-4',
+            nav.highlight ? 'bg-primary c-background px-1.5' : 'c-primary',
           ]}
         >
           {nav.name}
