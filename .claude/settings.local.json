@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(pnpm add *)",
+      "Bash(pnpm build *)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'chore: remove theme cruft — comments, analytics, swup, upstream metadata *)"
     ]
   },
   "outputStyle": "Learning"

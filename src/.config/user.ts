@@ -30,7 +30,6 @@ export const userConfig: Partial<UserConfig> = {
         name: 'Tags',
         href: '/categories',
       },
-      { name: 'Logseq Notes', href: '/logseq_notes/' },
       {
         name: 'About',
         href: '/about',

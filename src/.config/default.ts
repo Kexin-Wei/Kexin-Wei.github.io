@@ -79,13 +79,6 @@ export const defaultConfig: ThemeConfig = {
   rss: {
     fullText: true,
   },
-  comment: {
-    // disqus: { shortname: "typography-astro" },
-  },
-  analytics: {
-    googleAnalyticsId: '',
-    umamiAnalyticsId: '',
-  },
   latex: {
     katex: false,
   },

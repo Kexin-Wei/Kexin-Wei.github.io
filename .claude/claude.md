@@ -4,6 +4,8 @@
 
 Group by purpose. Use conventional commits: `feat:`, `fix:`, `docs:`, `style:`, `chore:`
 
+Do NOT add a `Co-Authored-By` line (or any Claude attribution) to commit messages.
+
 ```bash
 # Example
 git add src/layouts/*.astro && git commit -m "style: layout changes"
