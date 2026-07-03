@@ -25,7 +25,7 @@ export const profile: Profile = {
   role: 'R&D Engineer, Robotics & AI',
   location: 'Singapore',
   tagline: 'Building intelligent robotic systems — from perception to motion.',
-  avatar: '/me.jpeg',
+  avatar: '/profile.jpg',
   resume: '/resume.pdf',
   email: 'weikexin611@gmail.com',
   skills: [

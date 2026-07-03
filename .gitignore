@@ -20,4 +20,7 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Playwright MCP browser session artifacts
+.playwright-mcp/
+
 Markdown style guide.md

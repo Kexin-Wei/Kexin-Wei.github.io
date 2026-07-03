@@ -3,6 +3,7 @@
   --uno-colors-secondary: theme('colors.secondary');
   --uno-colors-background: theme('colors.background');
   --uno-colors-hairline: theme('colors.hairline');
+  --uno-colors-muted: theme('colors.muted');
   --uno-fonts-ui: theme('fontFamily.ui');
 }
 
