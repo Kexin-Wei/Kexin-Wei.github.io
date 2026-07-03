@@ -17,7 +17,13 @@ const accentClass: Record<string, string> = {
     {
       profile.focusAreas.map((area, idx) => (
         <div class="rule-t pt-4" flex="~ col gap-4">
-          <PixelGrid cols={24} rows={11} seed={idx * 13 + 3} class={`w-full h-auto ${accentClass[area.accent]}`} />
+          <PixelGrid
+            cols={24}
+            rows={11}
+            seed={idx * 13 + 3}
+            icons={area.icons}
+            class={`w-full h-auto ${accentClass[area.accent]}`}
+          />
           <h3 class="m-0 font-ui font-normal text-6 lg:text-7 c-primary">{area.title}</h3>
           <p class="m-0 text-3.5 c-secondary">{area.description}</p>
         </div>
