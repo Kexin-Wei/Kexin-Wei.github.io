@@ -79,7 +79,7 @@ for (let y = 0; y < rows; y++) {
     else if (w > 0.52) {
       kind = 'diamond'
     }
-    else if (w > 0.24) {
+    else if (w > 0.3 && rand() < 0.55) {
       kind = 'icon'
       icon = icons[Math.floor(rand() * icons.length)]
     }
@@ -109,39 +109,28 @@ const uid = `pg${seed}`
 >
   <defs>
     <g id={`${uid}-robot`}>
-      <rect x="2" y="4.5" width="8" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.2" />
-      <rect x="4" y="6.6" width="1.4" height="1.6" fill="currentColor" />
-      <rect x="6.6" y="6.6" width="1.4" height="1.6" fill="currentColor" />
-      <path d="M6 4.5V2.4" stroke="currentColor" stroke-width="1.2" />
-      <circle cx="6" cy="1.7" r="0.9" fill="currentColor" />
+      <rect x="2.5" y="3.5" width="7" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.4" />
+      <circle cx="4.8" cy="6.5" r="0.9" fill="currentColor" />
+      <circle cx="7.2" cy="6.5" r="0.9" fill="currentColor" />
     </g>
     <g id={`${uid}-gear`}>
-      <circle cx="6" cy="6" r="2.1" fill="none" stroke="currentColor" stroke-width="1.3" />
-      <path
-        d="M6 1v1.6M6 9.4V11M1 6h1.6M9.4 6H11M2.5 2.5l1.1 1.1M8.4 8.4l1.1 1.1M9.5 2.5 8.4 3.6M3.6 8.4 2.5 9.5"
-        stroke="currentColor"
-        stroke-width="1.3"
-      />
+      <circle cx="6" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.4" />
+      <path d="M6 1.5v2M6 8.5v2M1.5 6h2M8.5 6h2" stroke="currentColor" stroke-width="1.4" />
     </g>
     <g id={`${uid}-chip`}>
-      <rect x="3" y="3" width="6" height="6" fill="none" stroke="currentColor" stroke-width="1.2" />
-      <path
-        d="M4.5 3V1M7.5 3V1M4.5 11V9M7.5 11V9M3 4.5H1M3 7.5H1M11 4.5H9M11 7.5H9"
-        stroke="currentColor"
-        stroke-width="1"
-      />
+      <rect x="3.5" y="3.5" width="5" height="5" fill="none" stroke="currentColor" stroke-width="1.4" />
+      <circle cx="6" cy="6" r="1" fill="currentColor" />
     </g>
     <g id={`${uid}-wave`}>
-      <path d="M0.5 6Q3 1.5 6 6T11.5 6" fill="none" stroke="currentColor" stroke-width="1.3" />
+      <path d="M1 6Q3.5 2 6 6T11 6" fill="none" stroke="currentColor" stroke-width="1.4" />
     </g>
     <g id={`${uid}-node`}>
-      <circle cx="2.3" cy="2.6" r="1.4" fill="currentColor" />
-      <circle cx="2.3" cy="9.4" r="1.4" fill="currentColor" />
-      <circle cx="9.4" cy="6" r="1.6" fill="currentColor" />
-      <path d="M3.5 3.3 8 5.4M3.5 8.7 8 6.6" stroke="currentColor" stroke-width="1" />
+      <circle cx="3" cy="3.5" r="1.3" fill="currentColor" />
+      <circle cx="9" cy="8.5" r="1.3" fill="currentColor" />
+      <path d="M4 4.3 8 7.7" stroke="currentColor" stroke-width="1.2" />
     </g>
     <g id={`${uid}-code`}>
-      <path d="M4 2.5 1 6l3 3.5M8 2.5 11 6l-3 3.5" fill="none" stroke="currentColor" stroke-width="1.3" />
+      <path d="M4.5 3 1.5 6l3 3M7.5 3l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1.4" />
     </g>
   </defs>
   {

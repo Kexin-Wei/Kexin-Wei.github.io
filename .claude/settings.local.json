@@ -17,7 +17,9 @@
       "Bash(git commit -q -m 'feat: portfolio landing page in Researcher CV style, blog moved to /posts *)",
       "Bash(pnpm typecheck *)",
       "Bash(pnpm lint *)",
-      "Bash(pnpm lint:fix)"
+      "Bash(pnpm lint:fix)",
+      "Bash(git commit -q -m 'feat: content-themed icon fields, cleaner hero meta line *)",
+      "Bash(git commit -q -m 'style: simplify glyph-field icons and thin the field *)"
     ]
   }
 }
