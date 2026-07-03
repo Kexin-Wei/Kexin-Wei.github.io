@@ -28,18 +28,6 @@ export const themeConfig: ThemeConfig = {
         href: '/posts/',
       },
       {
-        name: 'Archive',
-        href: '/archive/',
-      },
-      {
-        name: 'Tags',
-        href: '/categories',
-      },
-      {
-        name: 'About',
-        href: '/#about',
-      },
-      {
         name: 'Resume',
         href: '/resume.pdf',
         highlight: true,

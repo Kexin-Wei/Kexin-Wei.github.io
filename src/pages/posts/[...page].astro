@@ -4,7 +4,7 @@ import { themeConfig } from '~/.config'
 import Pagination from '~/components/Pagination.astro'
 import SiteSeo from '~/components/SiteSeo.astro'
 import LayoutDefault from '~/layouts/LayoutDefault.astro'
-import { getPostDescription, getPosts } from '~/utils'
+import { getCategories, getPathFromCategory, getPostDescription, getPosts } from '~/utils'
 
 const { translate: t } = Astro.locals
 
@@ -21,6 +21,13 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { page } = Astro.props
+
+const categoryMap = await getCategories()
+const tags = Array.from(categoryMap).map(([name, posts]) => ({
+  name,
+  count: posts.length,
+  href: `/categories/${getPathFromCategory(name, themeConfig.site.categoryMap)}`,
+}))
 ---
 
 <LayoutDefault>
@@ -30,6 +37,15 @@ const { page } = Astro.props
     <h1 class="m-0 font-ui font-normal c-primary" style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1;">
       Archive of Posts
     </h1>
+    <div class="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+      {
+        tags.map(({ name, count, href }) => (
+          <a href={href} class="not-underline-hover mono-label c-muted hover:c-primary">
+            # {name} <span class="op-60">({count})</span>
+          </a>
+        ))
+      }
+    </div>
   </div>
 
   <ul class="m-0 p-0 list-none">
