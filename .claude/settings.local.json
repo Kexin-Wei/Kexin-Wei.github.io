@@ -19,7 +19,8 @@
       "Bash(pnpm lint *)",
       "Bash(pnpm lint:fix)",
       "Bash(git commit -q -m 'feat: content-themed icon fields, cleaner hero meta line *)",
-      "Bash(git commit -q -m 'style: simplify glyph-field icons and thin the field *)"
+      "Bash(git commit -q -m 'style: simplify glyph-field icons and thin the field *)",
+      "mcp__playwright__browser_wait_for"
     ]
   }
 }
