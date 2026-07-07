@@ -1,0 +1,6 @@
+# fontspec + custom OTF fonts require XeTeX; use xelatex.
+$pdf_mode = 5;   # 5 = xelatex
+
+# Build the two targeted versions by default; ignore resume-body.tex (shared
+# include) and the legacy resume.tex.
+@default_files = ('resume-aiml.tex', 'resume-robotics.tex');

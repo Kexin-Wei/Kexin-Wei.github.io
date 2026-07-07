@@ -1,0 +1,244 @@
+\documentclass[a4paper,10pt]{article}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  PACKAGES
+%%%%%%% --------------------------------------------------------------------------------------
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{csquotes}
+\usepackage{tabularx}
+\hypersetup{colorlinks=true,urlcolor=black}
+\usepackage[11pt]{moresize}
+\usepackage{setspace}
+\usepackage{fontspec}
+\usepackage[inline]{enumitem}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{anyfontsize}
+\usepackage{fontawesome5}
+\usepackage{ragged2e}
+\usepackage{expl3}
+
+%%%% Set Margins
+\usepackage[margin=1cm, top=1cm]{geometry}
+
+%%%% Set Fonts
+\setmainfont[
+BoldFont=SourceSansPro-Semibold.otf,
+ItalicFont=SourceSansPro-RegularIt.otf
+]{SourceSansPro-Regular.otf}
+\setsansfont{SourceSansPro-Semibold.otf}
+
+%%%% Set Page
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%%%% Set URL Style
+\urlstyle{same}
+
+%%%% Set Indentation
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%%%% Set Secondary Color
+\definecolor{UI_blue}{RGB}{32, 64, 151}
+
+%%%% Set Sections formatting
+\titleformat{\section}{
+\vspace{0.05cm}
+\color{UI_blue} \raggedright \Large 
+}{}{0em}{}[\vspace{-10pt} \hrulefill \vspace{-13pt}]
+
+%%%% Set Subtext Formatting
+\newcommand{\subtext}[1]{
+#1\par\vspace{-0.12cm}}
+
+\newcommand{\subtextit}[1]{
+\vspace{0cm} 
+\textit{ #1 
+\vspace{-0.1cm}} }
+
+%%%% Set Item Spacing
+\setlist[itemize]{align=parleft,left=0pt..1em}
+
+%%%% New Itemize "Zitemize" Formatting
+\newenvironment{zitemize}{
+\vspace{0.1cm}
+\begin{itemize}\itemsep 1.5pt \parskip 2pt \parsep 5pt}
+{\end{itemize}\vspace{-0.3cm}}
+
+%%%% Define Skills Bold Formatting
+\newcommand{\hskills}[1]{
+\textbf{\bfseries #1} }
+
+%%%% Metric placeholder — bright marker so unfilled numbers can't ship by accident.
+\newcommand{\ph}[1]{{\color{red}\textbf{[#1]}}}
+
+%%%% Set Subsection formatting
+\titleformat{\subsection}{
+\bfseries \fontsize{5cm}{30pt}
+}{}{0em}{}[\vspace{-0.1cm}]
+
+%%%% Set hyper link
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=UI_blue,
+    pdftitle={Kexin Wei - CV for PhD},
+    pdfpagemode=FullScreen,
+    }
+
+\begin{document}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  HEADER
+%%%%%%% --------------------------------------------------------------------------------------
+\begin{center}
+  \begin{center}
+    {\Huge\color{UI_blue} Kexin Wei}
+    \vspace{12pt}
+    {\color{UI_blue} \hrule}
+    \vspace{2pt}
+    \vspace{2pt}
+    \href{tel:+6589206264}{
+      \raisebox{-0.05\height} \faPhone\ +65 89206264} ~ | ~
+    \href{mailto:weikexin611@gmail.com}{
+      \raisebox{-0.15\height} \faEnvelope\ weikexin611@gmail.com} ~ | ~
+    \href{https://linkedin.com/in/kexin-wei-611s96/}{
+      \raisebox{-0.15\height} \faLinkedin\ kexin-wei-611s96} ~ | ~
+    \href{https://kexinwei.org/}{
+      \raisebox{-0.15\height} \faGlobe\ kexinwei.org} ~ | ~
+    \href{https://github.com/Kexin-Wei}{
+      \raisebox{-0.15\height} \faGithub\ Kexin-Wei}
+  \end{center}
+
+\vspace{-0.15cm} 
+% {\color{UI_blue} \hrulefill}
+\end{center}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  RESEARCH INTERESTS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Research Interests}
+\begin{zitemize}
+    \item \textbf{Robotics \& AI}: reinforcement learning for robot control and autonomy, medical and surgical robotics, and learning-based perception --- building on hands-on experience with 4/6-DoF robot arms, motion tracking, and deep-learning image segmentation.
+    \item \textbf{Supporting background}: medical imaging, cyber-physical systems security, and full-stack engineering for research platforms.
+\end{zitemize}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  EDUCATION
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Education}
+\subsection*{\large M.Eng in Medical Robotics and AI \hfill Aug 2020 --- May 2022} 
+\subtextit{National University of Singapore, Singapore \hfill GPA: 4.63/5.00}
+\begin{zitemize}
+    \item \textbf{Thesis}: Deep Reinforcement Learning (DRL) for Robot-assisted Surgical Training, which integrates DRL with a virtual laparoscopic surgery training system, wherein the DRL agent drives the surgical instrument and reaches goals of the surgical training tasks. \href{https://github.com/Kexin-Wei/Soft-tissue-deformation-in-laparoscopic-surgery-planning-with-DRL}{\faGithub~Code}.
+    \item \textbf{Teaching Assistant}: ME2143E Motor Characteristics and ME5405 Machine Vision.
+\end{zitemize}
+
+\subsection*{\large B.Eng in Mechanical Design, Manufacture and its Automation \hfill Sep 2014 --- Jul 2019} 
+\subtextit{Tongji University, China \hfill GPA: 4.61/5.00}
+\begin{zitemize}
+    \item \textbf{Final Project}: ECU Control of Boiler Combustion System with HMI Interface --- utilized a Freescale electric control unit receiving requests from a human interface, enabling users to monitor and control boiling procedures and components.
+\end{zitemize}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  RESEARCH EXPERIENCE
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Professional Experience}
+
+\subsection*{\large Research Engineer \hfill Mar 2025 --- Present}
+\subtextit{Imperial Global Singapore (IGS) --- IN-CYPHER Programme with NTU \hfill Singapore}
+\begin{zitemize}
+    \item \textbf{Security research}: Investigating agentic, LLM-driven automated penetration testing (Autopatch) for medical cyber-physical systems, with PACS/DICOM assessment on an Orthanc/OHIF testbed --- contributing to a submitted platform paper.
+    \item \textbf{Simulation}: Reproduced and validated a real-time closed-loop glucose-insulin simulator (OpenAPS/simglucose/UVA-Padova), translating MATLAB controllers to Python.
+    \item \textbf{Research platform}: Built the evaluation platform end-to-end --- Flask + Vue.js visualization, Dockerized multi-container deployment, and lab compute (Ubuntu/RHEL, KVM) supporting group experiments.
+\end{zitemize}
+
+\subsection*{\large Software Team Lead \hfill Mar 2024 --- Jan 2025}
+\subtextit{Creative Medtech Solutions Pte.Ltd. \hfill Singapore}
+\begin{zitemize}
+    \item \textbf{Robot}: Engineered robotics control systems including kinematics optimization for 4-DoF robot and control interfaces.
+    \item \textbf{CyberSecurity}: Enhanced security through encryption protocols, SQL injection protection, and streamlined Qt-based GUI.
+    \item \textbf{Image}: Developed 4D DICOM processing and US/MRI registration algorithms for medical image alignment.
+    \item \textbf{Lead}: Led a team of 6 engineers, driving Git workflow standardization, Scrum adoption, GoogleTest integration, and code review standards.
+\end{zitemize}
+
+\subsection*{\large Research and Development Engineer \hfill Jun 2022 --- Mar 2024}
+\subtextit{Creative Medtech Solutions Pte.Ltd. \hfill Singapore}
+\begin{zitemize}
+    \item \textbf{Robot}: Designed respiratory motion tracking algorithm for 6-DoF robot arm integrating an A*STAR CNN algorithm, verified in vivo across pig and dog trials.
+    \item \textbf{AI}: Developed and validated an AI-based 3D medical image segmentation pipeline for prostate biopsy guidance.
+    \item \textbf{Image}: Prototyped kidney segmentation solutions using SAM, MedSAM, and OpenCV for potential implementation.
+    \item \textbf{Signal Processing}: Created power calibration algorithm for High Intensity Focused Ultrasound treatment, verified in ex-vivo experiments.
+    \item \textbf{Sensor}: Integrated electromagnetic sensor system in HIFU treatment software for 3D visualization of the ultrasound probe.
+    \item \textbf{Patent}: Filed 3 patents in medical algorithm design: HIFU calibration, respiratory tracking, and time synchronization.
+\end{zitemize}
+
+\subsection*{\large Research Assistant --- Internship \hfill Jul 2018 --- Sep 2018}
+\subtextit{Beijing Surgerii Technology Co., Ltd. and Kii Lab of SJTU under Professor Kai Xu \hfill Shanghai, China}
+\begin{zitemize}
+    \item Conducted 20+ experiments to evaluate the three-dimensional positioning algorithm of a multi-backbone robot.
+    \item Assembled and tested the motor-driven part of a surgical robot arm to ensure fundamental functions.
+    \item Analyzed needle insertion experiment results and redesigned mechanical structure using AutoCAD for improved performance.
+\end{zitemize}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  PUBLICATIONS & PATENTS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Publications \& Patents}
+\begin{zitemize}
+    \item \textbf{K. Wei}, I. Zahid, L. Cheng, A. Bird, V. Schlegel, and N. Oliver, ``Generalisability of the Glucoprint: CGM-Based Re-identification Across Six Type~1 Diabetes Cohorts,'' Imperial College London / Imperial Global Singapore. \textit{In preparation}.
+    \item L. Cheng, \textbf{K. Wei}, V. Schlegel, Q. Shao, A. Bird, W. Wei, N. Oliver, and A.A. Bharath, ``G-FM: Imputation-Guided Flow Matching for Multivariate Time-Series Generation,'' Imperial College London / Imperial Global Singapore. \textit{Submitted}.
+    \item Y. Niu, \textbf{K. Wei}, V. Schlegel, and A.A. Bharath, ``HealthLoopQA: A Context-Aware Question Answering Benchmark for Interpreting Wearable Monitoring Data in Diabetes Care,'' Imperial College London / Imperial Global Singapore. \textit{Submitted}.
+    \item A.R. Bird$^\star$, V. Mohan$^\star$, \textbf{K. Wei}, Z. Cao, S.H. Ng, M.M. Mulay, V. Schlegel, M.G. Moffett, J.E. Moore Jr, C.-H. Chang, N. Oliver, and A.A. Bharath, ``Toward Trustworthy Closed-Loop Diabetes Technologies: A Dynamic Platform for Safety and Security Evaluation,'' Imperial Global Singapore / Imperial College London / NTU. \textit{Submitted}.
+    \item \textbf{3 Patents Filed}: HIFU power calibration algorithm, robot respiratory tracking algorithm, and HIFU sweep mode time synchronization.
+\end{zitemize}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  AWARDS & HONORS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Awards \& Honors}
+\begin{tabular}[t]{ p{11em} p{1em} p{43em}}
+\hskills{AI} && Hackathon ``Runner Up" Prize at bio LLMs hosted by 4Catalyzer (2023) \\
+\hskills{Mathematics Modeling} && 2nd Prize in CUMCM (2018); Honorable Mention in MCM/ICM (2018) \\
+\hskills{Scholarship} && 3rd Class Award (2018); 1st Class Award (2016); 3rd Class Award (2015) \\
+\end{tabular}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  SKILLS
+%%%%%%% --------------------------------------------------------------------------------------
+
+\section{Skills}
+\begin{tabular}{p{11em} p{1em} p{43em}}
+\hskills{Programming} && Python, C++, Matlab, SQL, Rust\\
+\hskills{Frameworks} && Qt, Flask, Vue.js, Flutter, OpenCV, VTK \\
+\hskills{AI/ML} && PyTorch, TensorFlow, Claude Agent SDK, LangChain/LangGraph, OpenAI \& Gemini APIs\\
+\hskills{Tools \& Infra} && Docker, Git, Linux (Ubuntu/RHEL), ROS, CI/CD \\
+\hskills{Language} && English (C1), German (C1), Mandarin (native) \\
+\end{tabular}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  COMMUNITY & SERVICE
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Community \& Service}
+\begin{zitemize}
+    \item \textbf{Open source}: Contributor to Women Devs SG projects --- the community website (merged) and the \textit{bibsnbub} childcare-finder app.
+    \item \textbf{Junior Developers SG}: Participant in coding dojos --- test-driven development, refactoring, and test automation.
+    \item \textbf{Division Zero (div0)}: Cybersecurity workshops --- home-lab building, SHELLgym, and Hack Your First Flag.
+\end{zitemize}
+
+\end{document}

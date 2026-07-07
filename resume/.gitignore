@@ -1,0 +1,14 @@
+# LaTeX build artifacts — regenerated on every build, never commit.
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.xdv
+*.synctex.gz
+*.toc
+# biblatex / biber
+*.bbl
+*.bcf
+*.blg
+*.run.xml
