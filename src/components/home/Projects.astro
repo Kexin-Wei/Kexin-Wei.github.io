@@ -1,0 +1,78 @@
+---
+import { profile, type PixelIcon } from '~/data/profile'
+import PixelGrid from '~/components/home/PixelGrid.astro'
+
+const areaClass: Record<string, string> = {
+  robotics: 'c-accent',
+  ai: 'c-accent-blue',
+  systems: 'c-muted',
+}
+const areaLabel: Record<string, string> = {
+  robotics: 'Robotics',
+  ai: 'AI & LLM',
+  systems: 'Imaging & Systems',
+}
+const areaIcons: Record<string, PixelIcon[]> = {
+  robotics: ['robot', 'gear', 'wave'],
+  ai: ['node', 'chip', 'code'],
+  systems: ['code', 'chip', 'node'],
+}
+---
+
+<section class="rule-t mt-16 lg:mt-24 pt-6">
+  <h2 class="m-0 mb-10 font-ui font-normal c-primary" style="font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.1;">
+    Selected Projects
+  </h2>
+  <div class="grid gap-8 lg:grid-cols-3 lg:gap-6">
+    {
+      profile.projects.map((project, idx) => (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-card not-underline-hover rule-t pt-4"
+          flex="~ col gap-3"
+        >
+          {project.image ? (
+            <img
+              src={project.image}
+              alt=""
+              loading="lazy"
+              class="w-full"
+              style="height: 9rem; object-fit: cover; border-radius: 4px; border: 1px solid color-mix(in srgb, currentColor 12%, transparent);"
+            />
+          ) : (
+            <PixelGrid
+              cols={24}
+              rows={9}
+              seed={idx * 13 + 5}
+              icons={areaIcons[project.area]}
+              class={`w-full h-auto ${areaClass[project.area]}`}
+            />
+          )}
+          <span class="text-2.5 font-ui uppercase c-secondary" style="letter-spacing: 0.08em;">
+            {areaLabel[project.area]}
+          </span>
+          <h3 class="m-0 font-ui font-normal text-5 lg:text-5.5 c-primary">{project.title}</h3>
+          <p class="m-0 text-3.5 c-secondary" style="flex: 1;">{project.description}</p>
+          <span class="text-2.75 c-secondary">{project.tags.join('  ·  ')}</span>
+          <span class="text-3 c-secondary">View on GitHub →</span>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .project-card,
+  .project-card * {
+    text-decoration: none;
+  }
+  .project-card h3 {
+    transition: text-decoration-color 0.15s ease;
+  }
+  .project-card:hover h3 {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

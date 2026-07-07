@@ -2,6 +2,11 @@
 import { getPosts } from '~/utils'
 
 const posts = (await getPosts()).slice(0, 3)
+
+function firstLocalImage(body: string | undefined): string | null {
+  const match = body?.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)
+  return match ? match[1] : null
+}
 ---
 
 <section class="rule-t mt-16 lg:mt-24 pt-6">
@@ -19,13 +24,19 @@ const posts = (await getPosts()).slice(0, 3)
   </div>
   <ul class="m-0 p-0 list-none">
     {
-      posts.map((post, idx) => (
+      posts.map((post, idx) => {
+        const thumb = firstLocalImage(post.body)
+        return (
         <li class="rule-t">
           <a
             href={`/posts/${post.id}/`}
-            class="not-underline-hover grid gap-2 py-6 lg:grid-cols-[6rem_1fr] lg:items-baseline group"
+            class="not-underline-hover grid gap-2 py-6 lg:grid-cols-[8rem_1fr] lg:items-center group"
           >
-            <span class="mono-label c-muted">{String(idx + 1).padStart(2, '0')}</span>
+            {thumb ? (
+              <img src={thumb} alt="" loading="lazy" class="post-thumb w-full" style="height: 4.5rem; object-fit: cover;" />
+            ) : (
+              <span class="mono-label c-muted">{String(idx + 1).padStart(2, '0')}</span>
+            )}
             <span flex="~ col gap-2">
               <span class="mono-label c-muted uppercase">
                 {post.data.categories?.join(' • ')} • {post.data.pubDate.getFullYear()}
@@ -36,7 +47,24 @@ const posts = (await getPosts()).slice(0, 3)
             </span>
           </a>
         </li>
-      ))
+        )
+      })
     }
   </ul>
 </section>
+
+<style>
+  /* Soften content-screenshot thumbnails so they blend with the minimal,
+     monochrome layout instead of reading as loud, high-contrast images. */
+  .post-thumb {
+    border-radius: 4px;
+    border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+    filter: grayscale(0.9) contrast(0.92);
+    opacity: 0.72;
+    transition: filter 0.25s ease, opacity 0.25s ease;
+  }
+  .group:hover .post-thumb {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+</style>
