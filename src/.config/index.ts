@@ -29,7 +29,7 @@ export const themeConfig: ThemeConfig = {
       },
       {
         name: 'Resume',
-        href: '/resume.pdf',
+        href: '/Kexin%20Wei%20Resume.pdf',
         highlight: true,
       },
     ],

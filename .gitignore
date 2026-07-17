@@ -28,3 +28,6 @@ Markdown style guide.md
 # session working screenshots
 *.jpeg
 !public/**
+
+.omc/
+.omo/

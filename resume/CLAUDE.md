@@ -1,22 +1,30 @@
 # Resume — build notes
 
-Three resumes, same toolchain:
+Four resumes, same toolchain:
 
 - `academic/resume.tex` — academic CV, comprehensive; shows all background but
   foregrounds robotics & AI (Research Interests section + accent-coloured
   `\rai{...}` labels). Uses `biblatex` + `Publications.bib`.
 - `job/resume-aiml.tex` — one-page, AI/ML-targeted industry resume.
 - `job/resume-robotics.tex` — one-page, Robotics/Medical-targeted resume.
+- `all/resume-all.tex` — two-page, general-purpose "fusion" resume: union of
+  the aiml + robotics content plus the academic CV's internship, full
+  publications list, and Community section. This is the PDF copied to
+  `public/Kexin Wei Resume.pdf` (linked from the site nav; the space-name
+  makes browser downloads save as "Kexin Wei Resume.pdf").
 
-## job/ two-variant architecture
+## job/ variant architecture
 
-`resume-aiml.tex` and `resume-robotics.tex` are 2-line drivers that set
-`\def\resumeversion{aiml|robotics}` then `\input{resume-body.tex}`. All shared
-content lives in **`resume-body.tex`**; edit it once and both PDFs update.
-Version-specific content/style is guarded by `\ifaimlver ... \else ... \fi`
-(tagline, which Experience bullets show, skills ordering). Accent colour
-(`UI_blue`) is intentionally **identical** across all three docs for brand
-consistency.
+`resume-aiml.tex`, `resume-robotics.tex`, and `all/resume-all.tex` are 2-line
+drivers that set `\def\resumeversion{aiml|robotics|all}` then input
+**`job/resume-body.tex`** (the `all` driver via `../job/resume-body.tex`; its
+fonts and `Publications.bib` are per-folder copies, since fontspec/biblatex
+resolve them relative to the compile cwd). All shared content lives in
+`resume-body.tex`; edit it once and all three PDFs update. Version-specific
+content/style is guarded by `\ifallver ... \else \ifaimlver ... \else ... \fi\fi`
+(tagline, which Experience bullets show, skills ordering; `all`-only sections
+are wrapped in plain `\ifallver ... \fi`). Accent colour (`UI_blue`) is
+intentionally **identical** across all documents for brand consistency.
 
 ## Metric placeholders
 

@@ -1,0 +1,5 @@
+# fontspec + custom OTF fonts require XeTeX; use xelatex.
+$pdf_mode = 5;   # 5 = xelatex
+
+# Single driver; shared content lives in ../job/resume-body.tex.
+@default_files = ('resume-all.tex');

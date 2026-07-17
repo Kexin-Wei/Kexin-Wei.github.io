@@ -54,12 +54,15 @@ ItalicFont=SourceSansPro-RegularIt.otf
 \setlength{\tabcolsep}{0in}
 
 %%%%%%% --------------------------------------------------------------------------------------
-%%%%%%%  VERSION SELECTION  (driver sets \resumeversion to "aiml" or "robotics")
+%%%%%%%  VERSION SELECTION  (driver sets \resumeversion to "aiml", "robotics" or "all")
 %%%%%%% --------------------------------------------------------------------------------------
 \providecommand{\resumeversion}{aiml}   % default when this file is built directly
 \newif\ifaimlver
+\newif\ifallver
 \def\aimlkeyword{aiml}
-\ifx\resumeversion\aimlkeyword \aimlvertrue \else \aimlverfalse \fi
+\def\allkeyword{all}
+\ifx\resumeversion\aimlkeyword \aimlvertrue \fi
+\ifx\resumeversion\allkeyword \allvertrue \fi
 
 %%%% Set Secondary Color  (brand indigo — kept identical across all documents)
 \definecolor{UI_blue}{RGB}{32, 64, 151}
@@ -232,13 +235,16 @@ Designed a motion-tracking algorithm for a 6-DoF robot arm integrating an A*STAR
 \end{center}
 % \vspace{-0.2cm}
 \begin{center}
-\ifaimlver
+\ifallver
+\textbf{AI, robotics, and cybersecurity engineer} with expertise in full-stack development and team leadership. \\
+Strong focus on system architecture, quality control, and cross-functional collaboration.
+\else\ifaimlver
 \textbf{AI/ML engineer} specializing in medical image segmentation and deep learning, with full-stack skills to \\
 take research models from prototype to validated, production-ready pipelines.
 \else
 \textbf{Robotics \& medical-devices engineer} specializing in motion control, surgical imaging, and sensor \\
 integration, with a track record of clinically validated, animal-trial-tested systems.
-\fi
+\fi\fi
 \end{center}
 % \vspace{-0.2cm}
 
@@ -248,9 +254,15 @@ integration, with a track record of clinically validated, animal-trial-tested sy
 \section{Experience}
 
 \subsection*{ \large Research Engineer \hfill Mar 2025 --- Present }
-\subtextit{Imperial Global Singapore. \hfill Singapore}
+\subtextit{Imperial Global Singapore, Imperial College London. \hfill Singapore}
 \begin{zitemize}
-\ifaimlver
+\ifallver
+    \item \textbf{AI Agents}: Building an agentic (Claude tool-use, multi-step planning) penetration-testing system for medical cyber-physical systems.
+    \item \textbf{Simulation}: Translated the MATLAB controller to Python and tuned a real-time closed-loop glucose-insulin patient simulator.
+    \item \textbf{Full-Stack}: Built a Flask + Vue.js application for real-time simulation and cyberattack visualization.
+    \item \textbf{DevOps}: Dockerized and deployed the simulation stack with multi-container orchestration.
+    \item \textbf{Infrastructure}: Administers lab workstations, servers, and container infrastructure.
+\else\ifaimlver
     \item \textbf{AI Agents}: Building an agentic (Claude tool-use, multi-step planning) penetration-testing system for medical cyber-physical systems.
     \item \textbf{Simulation}: Translated the MATLAB controller to Python and tuned a real-time closed-loop glucose-insulin patient simulator.
     \item \textbf{Full-Stack}: Built a Flask + Vue.js application for real-time simulation and cyberattack visualization.
@@ -260,20 +272,24 @@ integration, with a track record of clinically validated, animal-trial-tested sy
     \item \textbf{Systems}: Built a Flask + Vue.js application for real-time simulation and cyberattack visualization.
     \item \textbf{Security}: Researching agentic automated penetration testing for medical cyber-physical systems.
     \item \textbf{Infrastructure}: Dockerized deployment and administers lab workstations, servers, and container infrastructure.
-\fi
+\fi\fi
 \end{zitemize}
 
 \subsection*{ \large Software Team Lead \hfill Mar 2024 --- Jan 2025 } 
 \subtextit{Creative Medtech Solutions Pte.Ltd. \hfill Singapore} 
 \begin{zitemize}
-\ifaimlver
+\ifallver
+    \FKcorrect
+    \AIgeneral
+    \Cybersecurity
+\else\ifaimlver
     \AIgeneral
     \Cybersecurity
 \else
     \FKcorrect
     \ImageOnly
     \Cybersecurity
-\fi
+\fi\fi
     \item \textbf{Lead}: Led a team of 6 engineers: Git workflow, Scrum adoption, GoogleTest integration, and code-review standards.
 \end{zitemize}
 
@@ -281,7 +297,14 @@ integration, with a track record of clinically validated, animal-trial-tested sy
 \subtextit{Creative Medtech Solutions Pte.Ltd. \hfill Singapore} 
     \begin{zitemize}
     \justifying
-\ifaimlver
+\ifallver
+        \TrackOnlyRobot
+        \AIOnly
+        \SAM
+        \Emtrack
+        \HIFUTrack
+        \Patents
+\else\ifaimlver
         \AIOnly
         \SAM
         \TrackOnlyCNN
@@ -291,9 +314,19 @@ integration, with a track record of clinically validated, animal-trial-tested sy
         \Emtrack
         \HIFUTrack
         \Patents
-\fi
+\fi\fi
     \end{zitemize}
-    
+
+\ifallver
+\subsection*{\large Research Assistant --- Internship \hfill Jul 2018 --- Sep 2018}
+\subtextit{Beijing Surgerii Technology Co., Ltd. and Kii Lab of SJTU under Professor Kai Xu \hfill Shanghai, China}
+\begin{zitemize}
+    \item Conducted 20+ experiments to evaluate the three-dimensional positioning algorithm of a multi-backbone robot.
+    \item Assembled and tested the motor-driven part of a surgical robot arm to ensure fundamental functions.
+    \item Analyzed needle insertion experiment results and redesigned mechanical structure using AutoCAD for improved performance.
+\end{zitemize}
+\fi
+
 %%%%%%% --------------------------------------------------------------------------------------
 %%%%%%%  EDUCATION
 %%%%%%% --------------------------------------------------------------------------------------
@@ -311,15 +344,24 @@ integration, with a track record of clinically validated, animal-trial-tested sy
 %     \item Final Project: ECU Control of Boiler Combustion System with HMI Interface
 % \end{zitemize}
 
-\ifaimlver
 %%%%%%% --------------------------------------------------------------------------------------
-%%%%%%%  SELECTED PUBLICATIONS  (AI/ML variant only — research signal for applied-science roles)
+%%%%%%%  PUBLICATIONS  ("all": full list + patents; aiml: 1-line selection; robotics: none)
 %%%%%%% --------------------------------------------------------------------------------------
+\ifallver
+\section{Publications \& Patents}
+\begin{zitemize}
+    \item \textbf{K. Wei}, I. Zahid, L. Cheng, A. Bird, V. Schlegel, and N. Oliver, ``Generalisability of the Glucoprint: CGM-Based Re-identification Across Six Type~1 Diabetes Cohorts,'' Imperial College London / Imperial Global Singapore. \textit{In preparation}.
+    \item L. Cheng, \textbf{K. Wei}, V. Schlegel, Q. Shao, A. Bird, W. Wei, N. Oliver, and A.A. Bharath, ``G-FM: Imputation-Guided Flow Matching for Multivariate Time-Series Generation,'' Imperial College London / Imperial Global Singapore. \textit{Submitted}.
+    \item Y. Niu, Y. Ma, S. Nandakumar, M. Chen, V. Schlegel, \textbf{K. Wei}, L. Cheng, A. Bird, A.A. Bharath, and S.K. Lam, ``HealthLoopQA: A Context-Aware Question Answering Benchmark for Interpreting Wearable Monitoring Data in Diabetes Care,'' Imperial Global Singapore / Imperial College London / NTU. \textit{Submitted}.
+    \item A.R. Bird$^\star$, V. Mohan$^\star$, \textbf{K. Wei}, Z. Cao, S.H. Ng, M.M. Mulay, V. Schlegel, M.G. Moffett, J.E. Moore Jr, C.-H. Chang, N. Oliver, and A.A. Bharath, ``Toward Trustworthy Closed-Loop Diabetes Technologies: A Dynamic Platform for Safety and Security Evaluation,'' Imperial Global Singapore / Imperial College London / NTU. \textit{Submitted}.
+    \item \textbf{3 Patents Filed}: HIFU power calibration algorithm, robot respiratory tracking algorithm, and HIFU sweep mode time synchronization.
+\end{zitemize}
+\else\ifaimlver
 \section{Selected Publications}
 \begin{zitemize}
     \item \textbf{K. Wei} et al., ``Glucoprint: CGM-Based Re-identification Across Six Type~1 Diabetes Cohorts'' (\textit{first author, in prep.}); co-author on \textit{G-FM} (flow-matching time-series generation) and \textit{HealthLoopQA} (clinical QA benchmark), both \textit{submitted 2026}.
 \end{zitemize}
-\fi
+\fi\fi
 
 %%%%%%% --------------------------------------------------------------------------------------
 %%%%%%%  AWARDS & HONORS
@@ -337,7 +379,14 @@ integration, with a track record of clinically validated, animal-trial-tested sy
 \section{Skills}
 \begin{tabular}{p{11em} p{1em} p{43em}}
 
-\ifaimlver
+\ifallver
+\hskills{AI/ML} & & PyTorch, TensorFlow, \hskills{Deep Learning} (CV, CNN, DRL), \hskills{LLM} (Claude, OpenAI, Gemini; LangChain/LangGraph) \\
+\hskills{Robotics} & & ROS, 6-DoF motion control, kinematics, EM/US tracking, DICOM \\
+\hskills{Programming} & & Python, C++, MATLAB, SQL, Rust \\
+\hskills{Frameworks} & & Qt, Flask, Vue.js, Flutter, OpenCV, VTK \\
+\hskills{Tools \& Infra} & & Docker, Git, Linux (Ubuntu/RHEL), CI/CD \\
+\hskills{CAD/CAE}& & Solidworks, AutoCAD \\
+\else\ifaimlver
 \hskills{AI/ML} & & PyTorch, TensorFlow, \hskills{Deep Learning} (CV, CNN, DRL), \hskills{LLM} (Claude, OpenAI, Gemini; LangChain/LangGraph) \\
 \hskills{Programming} &  &  Python, C++, PyTorch, SQL, Docker, Linux, Git, Flask, Vue.js, OpenCV, VTK, MATLAB\\
 \hskills{CAD/CAE}& & Solidworks, AutoCAD \\
@@ -346,10 +395,22 @@ integration, with a track record of clinically validated, animal-trial-tested sy
 \hskills{Programming} &  &  C++, Python, MATLAB, Qt, Linux, Git, Docker, SQL, Flask, Vue.js \\
 \hskills{AI/ML} & & PyTorch, TensorFlow, \hskills{Deep Learning} (CV, CNN, DRL), segmentation (SAM/MedSAM) \\
 \hskills{CAD/CAE}& & Solidworks, AutoCAD \\
-\fi
+\fi\fi
 \hskills{Language }&  &  \hskills{English} (C1), \hskills{German}(C1), \hskills{Mandarin} (native)  \\
 
 \end{tabular}
 \vspace{-0.2cm}
- 
+
+\ifallver
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  COMMUNITY & SERVICE  ("all" variant only)
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Community \& Service}
+\begin{zitemize}
+    \item \textbf{Open source}: Contributor to Women Devs SG projects --- the community website (merged) and the \textit{bibsnbub} childcare-finder app.
+    \item \textbf{Junior Developers SG}: Participant in coding dojos --- test-driven development, refactoring, and test automation.
+    \item \textbf{Division Zero (div0)}: Cybersecurity workshops --- home-lab building, SHELLgym, and Hack Your First Flag.
+\end{zitemize}
+\fi
+
 \end{document}

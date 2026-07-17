@@ -49,7 +49,7 @@ export const profile: Profile = {
   location: 'Singapore',
   tagline: 'Building intelligent systems that move, reason, and stay secure.',
   avatar: '/portrait.jpg',
-  resume: '/resume.pdf',
+  resume: '/Kexin%20Wei%20Resume.pdf',
   email: 'weikexin611@gmail.com',
   emailAcademic: 'k.wei@imperial.ac.uk',
   skills: [

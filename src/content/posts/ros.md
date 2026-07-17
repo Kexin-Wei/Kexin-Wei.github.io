@@ -1,5 +1,5 @@
 ---
-title: ROS Intro
+title: ROS
 pubDate: 2025-01-24
 author: "Kexin Wei"
 categories:
