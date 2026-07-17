@@ -2,15 +2,15 @@
   <defs>
     <mask id="eyes">
       <rect width="128" height="128" fill="#fff"/>
-      <circle cx="50" cy="62" r="8" fill="#000"/>
-      <circle cx="74" cy="62" r="8" fill="#000"/>
+      <circle cx="50" cy="66" r="8" fill="#000"/>
+      <circle cx="74" cy="66" r="8" fill="#000"/>
     </mask>
   </defs>
   <g mask="url(#eyes)">
-    <rect x="59" y="22" width="10" height="20" rx="4"/>
-    <rect x="28" y="36" width="72" height="62" rx="16"/>
-    <rect x="14" y="54" width="10" height="26" rx="5"/>
-    <rect x="104" y="54" width="10" height="26" rx="5"/>
+    <rect x="59" y="26" width="10" height="20" rx="4"/>
+    <rect x="28" y="40" width="72" height="62" rx="16"/>
+    <rect x="14" y="58" width="10" height="26" rx="5"/>
+    <rect x="104" y="58" width="10" height="26" rx="5"/>
   </g>
   <style>
     g { fill: #1a1a1a; }
