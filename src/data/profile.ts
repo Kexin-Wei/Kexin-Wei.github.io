@@ -206,7 +206,7 @@ export const profile: Profile = {
   ],
   socials: [
     { name: 'github', label: 'GitHub', href: 'https://github.com/Kexin-Wei' },
-    { name: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/kexin-wei-611s96' },
+    { name: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/kexin-wei-research/' },
     { name: 'email', label: 'Email', href: 'mailto:weikexin611@gmail.com' },
   ],
 }
